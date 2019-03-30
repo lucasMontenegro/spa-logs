@@ -12,7 +12,7 @@ My application will have two separate GitHub repositories:
 1. react-ui: front-end assets and development toolset
 2. server: the HTTP server designed to be hosted on Heroku.
 
-### react-ui
+### "react-ui" Package
 
 Initialize a git repo through the GitHub interface and then clone it locally:
 
@@ -83,7 +83,7 @@ This will be the mount point for the assets.
 
 Finally, push the changes to GitHub.
 
-### server
+### "server" Package
 
 Similarly, create a GitHub repo and clone it locally. Then initialize a new npm package inside the repo folder:
 ```bash
@@ -144,7 +144,7 @@ Add a `server/.gitignore` file:
 /node_modules
 ```
 
-Install the needed dependencies. To install a package directly from GitHub do this:
+Install the dependencies needed. To install a package directly from GitHub do this:
 ```
 npm install https://github.com/<username or organization name>/<repository name>.git
 ```
@@ -153,4 +153,44 @@ Push the changes to GitHub.
 
 ### Heroku
 
-Create a new app from the Heroku dashboard. Under "Deployment method" select "Connect to GitHub". Then enter the repository name and click "Enable Automatic Deploys". Finally, under "Manual deploy" select a branch and click "Deploy branch".
+1. Create a new app from the Heroku dashboard.
+2. Under "Deployment method" select "Connect to GitHub".
+3. Then enter the server repository name and click "Enable Automatic Deploys".
+4. Finally, under "Manual deploy" select a branch and click "Deploy branch".
+
+### Development Server
+
+To be able to do API calls during development, add the following to `react-ui/package.json`:
+
+```diff
+     "not dead",
+     "not ie <= 11",
+     "not op_mini all"
+-  ]
++  ],
++  "proxy": "https://<app name>.herokuapp.com/"
+ }
+```
+
+## Further Reading
+
+- [Node.js on Heroku: A More Complete Tutorial: Part 1](https://codeburst.io/node-js-on-heroku-a-more-complete-tutorial-part-1-9e80cb071498)
+
+- [Getting Started - Create React App](https://facebook.github.io/create-react-app/docs/getting-started)
+- [Folder Structure - Create React App](https://facebook.github.io/create-react-app/docs/folder-structure)
+- [Available Scripts - Create React App](https://facebook.github.io/create-react-app/docs/available-scripts)
+- [Setting Up Your Editor - Create React App](https://facebook.github.io/create-react-app/docs/setting-up-your-editor#syntax-highlighting)
+
+- [npm-package.json](https://docs.npmjs.com/files/package.json)
+- [Adding Custom Environment Variables - Create React App](https://facebook.github.io/create-react-app/docs/adding-custom-environment-variables)
+- [Webpack Output Management](https://webpack.js.org/guides/output-management/)
+- [HTML Webpack Plugin](https://github.com/jantimon/html-webpack-plugin)
+- `react-ui/public/index.html`
+
+- [Introducing the app.json Application Manifest](https://blog.heroku.com/introducing_the_app_json_application_manifest)
+- [create-react-app with a Node server on Heroku](https://github.com/mars/heroku-cra-node)
+- [Deployment - Create React App](https://facebook.github.io/create-react-app/docs/deployment)
+
+- [Node.js on Heroku: A More Complete Tutorial: Part 2](https://codeburst.io/node-js-on-heroku-a-more-complete-tutorial-part-2-53350381543c)
+
+- [Proxying API Requests in Development - Create React App](https://facebook.github.io/create-react-app/docs/proxying-api-requests-in-development)
