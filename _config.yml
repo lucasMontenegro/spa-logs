@@ -1,10 +1,9 @@
 remote_theme: pmarsceill/just-the-docs
-theme: 'just-the-docs'
+plugins:
+  - jekyll-include-cache
 
 title: SPA Logs
 description: A blog/tutorial documenting my struggle to make a single page application using modern technologies
-#url: "https://lucasmontenegro.github.io"
-#baseurl: "/spa-logs/"
 
 search_enabled: true
 aux_links:
